@@ -5,7 +5,7 @@ import os
 
 
 def search(text=None, pattern=None):
-    """Helps in searching the given pattern in the given text.
+    """Searches the given pattern in the given text.
 
     Args:
         text (str): Text in which the pattern needs to be searched.
@@ -17,12 +17,6 @@ def search(text=None, pattern=None):
 
     .. versionadded:: TODO
     """
-    if not text and pattern:
-        raise ValueError('Text that needs to be searched should be provided.')
-
-    if text and not pattern:
-        raise ValueError('Pattern should be provided to be searched.')
-
     return True if pattern in text else False
 
 
