@@ -20,6 +20,26 @@ def search(text=None, pattern=None):
     return True if pattern in text else False
 
 
+def read(path):
+    """Yields line by line from the file path provided.
+
+    Args:
+        path (str): File path provided.
+
+    Yields:
+        int: Line number.
+        str: Line of text corresponding to the line number from the file.
+
+    .. versionadded:: TODO
+    """
+    with open(path, 'r') as fp:
+        count = 0
+
+        for line in fp:
+            count += 1
+            yield (count, line.strip('\n'))
+
+
 def iterfiles(*paths):
     """Yields all the file paths in a given directory.
 
