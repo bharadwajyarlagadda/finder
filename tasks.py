@@ -64,12 +64,6 @@ def test(ctx):
     pass
 
 
-@task(post=[clean])
-def tox(ctx):
-    """Run tox testing."""
-    run('tox -c tox.ini')
-
-
 @task
 def docs(ctx, serve=False, port=8000):
     """Build documentation."""
