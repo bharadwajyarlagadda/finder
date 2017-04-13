@@ -108,17 +108,3 @@ def iterfiles(*paths):
                     if (os.path.isfile(file_path) and
                             not is_executable(file_path)):
                         yield file_path
-
-
-def is_executable(path):
-    """Validates whether a given file path is binary or not.
-
-    Args:
-        path (str): File path to be provided.
-
-    Returns:
-        bool: Boolean value to tell whether the given file is a binary or not.
-
-    .. versionadded:: TODO
-    """
-    return os.access(path, os.X_OK)
