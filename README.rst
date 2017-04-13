@@ -9,7 +9,7 @@ Links
 =====
 
 - Project: https://github.com/bharadwajyarlagadda/finder
-- Documentation: `TBD`
+- Documentation: Wiki_
 - Pypi: `TBD`
 - TravisCI: https://travis-ci.org/bharadwajyarlagadda/finder
 
@@ -26,3 +26,6 @@ Features
 
 .. |coveralls| image:: https://img.shields.io/coveralls/bharadwajyarlagadda/finder/master.svg?style=flat-square
     :target: https://coveralls.io/r/bharadwajyarlagadda/finder
+
+
+.. _Wiki: https://github.com/bharadwajyarlagadda/finder/wiki
