@@ -17,7 +17,7 @@ Links
 Features
 ========
 
-- Supported on Python 2.7 and Python 3.3+.
+- Supported on Python 3.3+.
 
 
 
