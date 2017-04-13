@@ -10,6 +10,12 @@ from .extensions import (
 )
 
 
+def split_params(params):
+    """Returns a list of values from a given string of comma-separated values.
+    """
+    return params.split(',')
+
+
 def file_extension(path):
     """Returns the file extension of the given file path."""
     return path.split(os.path.sep)[-1].split('.')[-1]
