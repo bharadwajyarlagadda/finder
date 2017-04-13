@@ -92,7 +92,7 @@ class FileReader(threading.Thread):
         return ErrorSchema().dump(error).data
 
 
-def find(*paths, pattern=None):
+def find(*paths, pattern=None):  # noqa: E999
     """Main method for finding the pattern in the given file paths.
 
     Args:
