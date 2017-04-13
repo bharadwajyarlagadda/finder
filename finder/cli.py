@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import logging as log
 import os
 import json
 
@@ -9,9 +8,6 @@ import click
 from .__pkg__ import __version__
 from .api import find
 from .utils import split_params
-
-
-log.basicConfig(format='%(message)s', level=log.INFO)
 
 
 # Borrowed from http://click.pocoo.org/5/advanced/.
@@ -39,7 +35,7 @@ def finder(ctx, version):
     directory/file path.
     """
     if version:
-        log.info(__version__)
+        click.echo(__version__)
 
 
 @finder.command('search')
@@ -69,15 +65,15 @@ def search(ctx, path, pattern, verbose):
 
         if items:
             for item in items:
-                log.info('{path}:{line_number}: {line}'
-                         .format(path=path,
-                                 line_number=item['line_number'],
-                                 line=item['line']))
+                click.echo('{path}:{line_number}: {line}'
+                           .format(path=path,
+                                   line_number=item['line_number'],
+                                   line=item['line']))
 
         if errors and verbose:
             for error in errors:
-                log.info('{type}:{path}:{message} {extra}'
-                         .format(type=error['type'],
-                                 path=path,
-                                 message=error['message'],
-                                 extra=error['extra']))
+                click.echo('{type}:{path}:{message} {extra}'
+                           .format(type=error['type'],
+                                   path=path,
+                                   message=error['message'],
+                                   extra=error['extra']))
