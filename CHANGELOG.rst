@@ -8,3 +8,4 @@ Changelog
 - Add ``read`` method to read a given file line by line.
 - Add wrapper method ``find`` to iterate through the given list of files/directories and find the given pattern in the files.
 - Add ``FileReader`` class to searching all the files concurrently.
+- Add schemas for serializing the data to a JSON-encoded string.
