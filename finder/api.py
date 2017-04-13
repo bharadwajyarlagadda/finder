@@ -51,7 +51,7 @@ class FileReader(threading.Thread):
                     items.append(self.set_data(line_number, line))
                     pattern_found = True
         except PermissionError as exc:
-            error.append(self.make_error(type=PermissionError,
+            error.append(self.make_error(type='PermissionError',
                                          message=exc,
                                          extra=None))
             errors_occurred = True
@@ -92,7 +92,7 @@ class FileReader(threading.Thread):
         return ErrorSchema().dump(error).data
 
 
-def find(*paths, pattern=None):  # noqa: E999
+def find(*paths, **kwargs):
     """Main method for finding the pattern in the given file paths.
 
     Args:
@@ -101,6 +101,7 @@ def find(*paths, pattern=None):  # noqa: E999
 
     .. versionadded:: TODO
     """
+    pattern = kwargs.get('pattern', None)
     _queue = queue.Queue()
 
     for path in iterfiles(*paths):
