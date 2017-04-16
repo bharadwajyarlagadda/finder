@@ -28,4 +28,4 @@ Features
     :target: https://coveralls.io/r/bharadwajyarlagadda/finder
 
 
-.. _Wiki: https://github.com/bharadwajyarlagadda/finder/wiki
+.. _Wiki: https://github.com/bharadwajyarlagadda/finder/wiki/Finder
