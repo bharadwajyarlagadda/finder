@@ -76,4 +76,4 @@ def search(ctx, path, pattern, verbose):
                            .format(type=error['type'],
                                    path=path,
                                    message=error['message'],
-                                   extra=error['extra']))
+                                   extra=error['extra'] or ''))

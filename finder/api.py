@@ -7,7 +7,6 @@ import logging as log
 
 from .schema import FinderSchema, DataSchema, ErrorSchema
 from .utils import (
-    split_params,
     is_kernel_file,
     is_executable,
     is_readable,
