@@ -97,7 +97,7 @@ def find(*paths, **kwargs):
 
     Args:
         paths (list): List of paths to be walked through.
-        pattern (str): A string to be searched in the given file path.
+        kwargs (str): Positional arguments.
 
     .. versionadded:: TODO
     """
