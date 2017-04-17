@@ -33,6 +33,10 @@ setup(
     long_description=readme + '\n\n' + changelog,
     packages=find_packages(exclude=['tests', 'tasks']),
     install_requires=requirements,
+    entry_points='''
+        [console_scripts]
+        finder=finder.__main__:finder
+    ''',
     keywords='',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
