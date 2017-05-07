@@ -27,7 +27,7 @@ class FileReader(threading.Thread):
         path (str): File path.
         pattern (str): A string to be searched in the given file path.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     def __init__(self, path=None, pattern=None, _queue=None):
         self.path = path
@@ -98,7 +98,7 @@ def find(*paths, **kwargs):
         paths (list): List of paths to be walked through.
         kwargs (str): Positional arguments.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     pattern = kwargs.get('pattern', None)
     _queue = queue.Queue()
@@ -123,7 +123,7 @@ def search(text=None, pattern=None):
         bool: A boolean value stating whether the pattern is found in the
             given text or not.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     return True if pattern in text else False
 
@@ -138,7 +138,7 @@ def read(path):
         int: Line number.
         str: Line of text corresponding to the line number from the file.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     with open(path, 'r', encoding='utf-8') as fp:
         count = 0
@@ -157,7 +157,7 @@ def iterfiles(*paths):
     Yields:
         path (str): File path (files in the given directory path).
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     for path in paths:
         path = os.path.expanduser(path) if not os.path.isabs(path) else path

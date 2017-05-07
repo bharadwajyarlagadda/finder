@@ -30,7 +30,7 @@ def is_executable(path):
     Returns:
         bool: True if the file is a binary else False.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     return os.access(path, os.X_OK)
 
@@ -44,7 +44,7 @@ def is_readable(path):
     Returns:
         bool: True if the file is readable else False.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     return os.access(path, os.R_OK)
 
@@ -58,7 +58,7 @@ def is_image(path):
     Returns:
         bool: True if the file is an image else False.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     extension = file_extension(path)
 
@@ -74,7 +74,7 @@ def is_video(path):
     Returns:
         bool: True if the file is a video else False.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     extension = file_extension(path)
 
@@ -90,7 +90,7 @@ def is_audio(path):
     Returns:
         bool: True if the file is a audio else False.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     extension = file_extension(path)
 
@@ -106,6 +106,6 @@ def is_kernel_file(path):
     Returns:
         bool: True if the file path is a kernel file else False.
 
-    .. versionadded:: TODO
+    .. versionadded:: 1.0.0
     """
     return any([path.startswith(parent_dir) for parent_dir in KERNEL_DIRS])
