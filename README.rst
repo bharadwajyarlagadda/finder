@@ -40,7 +40,7 @@ Features
     :target: https://coveralls.io/r/bharadwajyarlagadda/finder
 
 .. |license| image:: https://img.shields.io/pypi/l/finder.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/finder/
+    :target: https://github.com/bharadwajyarlagadda/finder/blob/master/LICENSE.rst
 
 
 .. _Wiki: https://github.com/bharadwajyarlagadda/finder/wiki
