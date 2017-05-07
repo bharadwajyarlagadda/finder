@@ -9,3 +9,4 @@ Changelog
 - Add wrapper method ``find`` to iterate through the given list of files/directories and find the given pattern in the files.
 - Add ``FileReader`` class to searching all the files concurrently.
 - Add schemas for serializing the data to a JSON-encoded string.
+- Add command line wrapper around the API. User can now use the command line interface to get all the search results.
