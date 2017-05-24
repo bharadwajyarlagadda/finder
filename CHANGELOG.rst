@@ -2,6 +2,9 @@ Changelog
 =========
 
 
+- Move documentation from wiki to README.
+
+
 v1.0.2 (2017-05-07)
 -------------------
 
