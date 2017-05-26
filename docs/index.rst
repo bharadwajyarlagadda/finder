@@ -15,6 +15,11 @@ Project Info
 .. toctree::
     :maxdepth: 1
 
+    license
+    changelog
+    authors
+    contributing
+
 
 
 Indices and tables
@@ -23,4 +28,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
