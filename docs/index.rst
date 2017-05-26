@@ -8,8 +8,9 @@ Guide
 .. toctree::
     :maxdepth: 3
 
-    functionality
     cli
+    functionality
+    schema
 
 
 Project Info
