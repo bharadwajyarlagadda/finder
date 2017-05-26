@@ -8,6 +8,7 @@ Guide
 .. toctree::
     :maxdepth: 3
 
+    functionality
     cli
 
 
