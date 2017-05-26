@@ -8,6 +8,8 @@ Guide
 .. toctree::
     :maxdepth: 3
 
+    cli
+
 
 Project Info
 ============
