@@ -2,6 +2,7 @@ Changelog
 =========
 
 
+- Move ``search`` method from ``finder.api`` to ``finder.utils``.
 - Add documentation.
 
 

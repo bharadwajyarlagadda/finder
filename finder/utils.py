@@ -10,75 +10,12 @@ from .extensions import (
 )
 
 
-def split_params(params):
-    """Returns a list of values from a given string of comma-separated values.
-    """
-    return params.split(',')
-
-
 def file_extension(path):
-    """Returns the file extension of the given file path."""
+    """Returns the file extension of the given file path.
+
+    .. versionadded:: 1.0.0
+    """
     return path.split(os.path.sep)[-1].split('.')[-1]
-
-
-def is_executable(path):
-    """Validates whether a given file path is binary or not.
-
-    Args:
-        path (str): File path.
-
-    Returns:
-        bool: True if the file is a binary else False.
-
-    .. versionadded:: 1.0.0
-    """
-    return os.access(path, os.X_OK)
-
-
-def is_readable(path):
-    """Validates whether a given file path is readable or not.
-
-    Args:
-        path (str): File path.
-
-    Returns:
-        bool: True if the file is readable else False.
-
-    .. versionadded:: 1.0.0
-    """
-    return os.access(path, os.R_OK)
-
-
-def is_image(path):
-    """Validates whether a given file path is image or not.
-
-    Args:
-        path (str): File path.
-
-    Returns:
-        bool: True if the file is an image else False.
-
-    .. versionadded:: 1.0.0
-    """
-    extension = file_extension(path)
-
-    return extension in IMAGE_FORMATS
-
-
-def is_video(path):
-    """Validates whether a given file path is a video or not.
-
-    Args:
-        path (str): File path.
-
-    Returns:
-        bool: True if the file is a video else False.
-
-    .. versionadded:: 1.0.0
-    """
-    extension = file_extension(path)
-
-    return extension in VIDEO_FORMATS
 
 
 def is_audio(path):
@@ -97,6 +34,36 @@ def is_audio(path):
     return extension in AUDIO_FORMATS
 
 
+def is_executable(path):
+    """Validates whether a given file path is binary or not.
+
+    Args:
+        path (str): File path.
+
+    Returns:
+        bool: True if the file is a binary else False.
+
+    .. versionadded:: 1.0.0
+    """
+    return os.access(path, os.X_OK)
+
+
+def is_image(path):
+    """Validates whether a given file path is image or not.
+
+    Args:
+        path (str): File path.
+
+    Returns:
+        bool: True if the file is an image else False.
+
+    .. versionadded:: 1.0.0
+    """
+    extension = file_extension(path)
+
+    return extension in IMAGE_FORMATS
+
+
 def is_kernel_file(path):
     """Validates whether the file path is a kernel file or not.
 
@@ -109,3 +76,60 @@ def is_kernel_file(path):
     .. versionadded:: 1.0.0
     """
     return any([path.startswith(parent_dir) for parent_dir in KERNEL_DIRS])
+
+
+def is_readable(path):
+    """Validates whether a given file path is readable or not.
+
+    Args:
+        path (str): File path.
+
+    Returns:
+        bool: True if the file is readable else False.
+
+    .. versionadded:: 1.0.0
+    """
+    return os.access(path, os.R_OK)
+
+
+def is_video(path):
+    """Validates whether a given file path is a video or not.
+
+    Args:
+        path (str): File path.
+
+    Returns:
+        bool: True if the file is a video else False.
+
+    .. versionadded:: 1.0.0
+    """
+    extension = file_extension(path)
+
+    return extension in VIDEO_FORMATS
+
+
+def search(text=None, pattern=None):
+    """Searches the given pattern in the given text.
+
+    Args:
+        text (str): Text in which the pattern needs to be searched.
+        pattern (str): A string to be searched in the given `text`.
+
+    Returns:
+        bool: A boolean value stating whether the pattern is found in the
+            given text or not.
+
+    .. versionadded:: 1.0.0
+
+    .. versionchanged:: TODO
+        Move from finder.api to finder.utils.
+    """
+    return True if pattern in text else False
+
+
+def split_params(params):
+    """Returns a list of values from a given string of comma-separated values.
+
+    .. versionadded:: 1.0.0
+    """
+    return params.split(',')

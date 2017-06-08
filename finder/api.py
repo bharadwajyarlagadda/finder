@@ -7,6 +7,7 @@ import logging as log
 
 from .schema import FinderSchema, DataSchema, ErrorSchema
 from .utils import (
+    search,
     is_kernel_file,
     is_executable,
     is_readable,
@@ -110,22 +111,6 @@ def find(*paths, **kwargs):
 
         while not _queue.empty():
             yield _queue.get()
-
-
-def search(text=None, pattern=None):
-    """Searches the given pattern in the given text.
-
-    Args:
-        text (str): Text in which the pattern needs to be searched.
-        pattern (str): A string to be searched in the given `text`.
-
-    Returns:
-        bool: A boolean value stating whether the pattern is found in the
-            given text or not.
-
-    .. versionadded:: 1.0.0
-    """
-    return True if pattern in text else False
 
 
 def read(path):
