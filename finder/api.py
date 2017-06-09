@@ -3,7 +3,6 @@
 import os
 import queue
 import threading
-import logging as log
 
 from .schema import FinderSchema, DataSchema, ErrorSchema
 from .utils import (
@@ -13,12 +12,9 @@ from .utils import (
     is_readable,
     is_image,
     is_audio,
+    iterfiles,
     is_video
 )
-
-log.basicConfig(format='%(message)s', level=log.INFO)
-
-lock = threading.Lock
 
 
 class FileReader(threading.Thread):
@@ -131,39 +127,3 @@ def read(path):
         for line in fp:
             count += 1
             yield (count, line.strip('\n'))
-
-
-def iterfiles(*paths):
-    """Yields all the non-executable file paths in a given directory.
-
-    Args:
-        paths (list): List of paths to be walked through.
-
-    Yields:
-        path (str): File path (files in the given directory path).
-
-    .. versionadded:: 1.0.0
-    """
-    for path in paths:
-        path = os.path.expanduser(path) if not os.path.isabs(path) else path
-
-        if not os.path.exists(path):
-            log.info("{path} is not a valid path. Please provide a valid path."
-                     .format(path=path))
-            continue
-
-        if os.path.isfile(path) and not is_executable(path):
-            yield path
-        elif os.path.isdir(path):
-            for root, dirs, files in os.walk(path):
-                for file in files:
-                    file_path = os.path.join(root, file)
-
-                    if (os.path.isfile(file_path) and
-                            is_readable(file_path) and
-                            not is_image(file_path) and
-                            not is_executable(file_path) and
-                            not is_kernel_file(file_path) and
-                            not is_audio(file_path) and
-                            not is_video(file_path)):
-                        yield file_path

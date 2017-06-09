@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import logging as log
 
 from .extensions import (
     IMAGE_FORMATS,
@@ -8,6 +9,9 @@ from .extensions import (
     AUDIO_FORMATS,
     KERNEL_DIRS
 )
+
+
+log.basicConfig(format='%(message)s', level=log.INFO)
 
 
 def file_extension(path):
@@ -106,6 +110,45 @@ def is_video(path):
     extension = file_extension(path)
 
     return extension in VIDEO_FORMATS
+
+
+def iterfiles(*paths):
+    """Yields all the non-executable file paths in a given directory.
+
+    Args:
+        paths (list): List of paths to be walked through.
+
+    Yields:
+        path (str): File path (files in the given directory path).
+
+    .. versionadded:: 1.0.0
+
+    .. versionchanged: TODO
+        Move from finder.api to finder.utils.
+    """
+    for path in paths:
+        path = os.path.expanduser(path) if not os.path.isabs(path) else path
+
+        if not os.path.exists(path):
+            log.info("{path} is not a valid path. Please provide a valid path."
+                     .format(path=path))
+            continue
+
+        if os.path.isfile(path) and not is_executable(path):
+            yield path
+        elif os.path.isdir(path):
+            for root, dirs, files in os.walk(path):
+                for file in files:
+                    file_path = os.path.join(root, file)
+
+                    if (os.path.isfile(file_path) and
+                            is_readable(file_path) and
+                            not is_image(file_path) and
+                            not is_executable(file_path) and
+                            not is_kernel_file(file_path) and
+                            not is_audio(file_path) and
+                            not is_video(file_path)):
+                        yield file_path
 
 
 def search(text=None, pattern=None):

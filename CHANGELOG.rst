@@ -3,6 +3,7 @@ Changelog
 
 
 - Move ``search`` method from ``finder.api`` to ``finder.utils``.
+- Move ``iterfiles`` method from ``finder.api`` to ``finder.utils``.
 - Add documentation.
 
 
