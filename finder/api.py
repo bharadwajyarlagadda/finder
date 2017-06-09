@@ -5,16 +5,7 @@ import queue
 import threading
 
 from .schema import FinderSchema, DataSchema, ErrorSchema
-from .utils import (
-    search,
-    is_kernel_file,
-    is_executable,
-    is_readable,
-    is_image,
-    is_audio,
-    iterfiles,
-    is_video
-)
+from .utils import search, iterfiles
 
 
 class FileReader(threading.Thread):
