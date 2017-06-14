@@ -8,6 +8,7 @@ import click
 from .__pkg__ import __version__
 from .api import find
 from .utils import split_params
+from .templates import render_lines, render_error
 
 
 # Borrowed from http://click.pocoo.org/5/advanced/.
@@ -51,9 +52,8 @@ def finder(ctx, version):
 @click.option('-v', '--verbose', is_flag=True, default=False,
               help='Some files cannot be opened and searched for the given '
                    'pattern. For example, kernel files which generate content '
-                   'on go, files which are not utf-8 encoded, etc. You can '
-                   'use this flag if you need a detailed output of which file '
-                   'has an error.')
+                   'on go, files which are not utf-8 encoded, etc. Helps in '
+                   'getting a detailed output of which file has an error.')
 @click.pass_context
 def search(ctx, path, pattern, verbose):
     """Searches for the given pattern in the directory/file path provided."""
@@ -65,15 +65,13 @@ def search(ctx, path, pattern, verbose):
 
         if items:
             for item in items:
-                click.echo('{path}:{line_number}: {line}'
-                           .format(path=path,
-                                   line_number=item['line_number'],
-                                   line=item['line']))
+                click.echo(render_lines(path=path,
+                                        line_number=item['line_number'],
+                                        line=item['line']))
 
         if errors and verbose:
             for error in errors:
-                click.echo('{type}:{path}:{message} {extra}'
-                           .format(type=error['type'],
-                                   path=path,
-                                   message=error['message'],
-                                   extra=error['extra'] or ''))
+                click.echo(render_error(type_=error['type'],
+                                        path=path,
+                                        message=error['message'],
+                                        extra=error['extra'] or ''))

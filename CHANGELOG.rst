@@ -2,8 +2,10 @@ Changelog
 =========
 
 
+- Add colors to CLI output.
+- Add ``sleep()`` call in ``find()`` method to reduce the CPU utilization percentage.
 - Move ``search`` method from ``finder.api`` to ``finder.utils``.
-- Move ``iterfiles`` method from ``finder.api`` to ``finder.utils``.
+- Move ``iterfiles`` method from ``finder.api`` to ``finder.utils``
 - Add documentation.
 
 

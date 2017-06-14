@@ -88,6 +88,9 @@ def find(*paths, **kwargs):
         kwargs (str): Positional arguments.
 
     .. versionadded:: 1.0.0
+
+    .. versionchanged:: TODO
+        Add time.sleep() call to reduce CPU utilization percentage.
     """
     pattern = kwargs.get('pattern', None)
     _queue = queue.Queue()
