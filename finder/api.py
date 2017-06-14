@@ -3,6 +3,7 @@
 import os
 import queue
 import threading
+import time
 
 from .schema import FinderSchema, DataSchema, ErrorSchema
 from .utils import search, iterfiles
@@ -95,6 +96,10 @@ def find(*paths, **kwargs):
         reader = FileReader(path, pattern, _queue)
         reader.start()
         reader.join()
+
+        # Sleep call reduces the CPU utilization percentage. If CPU
+        # performance is not a concern, this line can be commented out.
+        time.sleep(0.03)
 
         while not _queue.empty():
             yield _queue.get()
