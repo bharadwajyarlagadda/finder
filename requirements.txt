@@ -1,2 +1,2 @@
-click==6.7
-marshmallow==3.0.0b2
+click>=6.7
+marshmallow>=3.0.0b2
