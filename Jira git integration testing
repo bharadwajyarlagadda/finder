@@ -1,0 +1,26 @@
+import com.atlassian.jira.component.ComponentAccessor
+import com.atlassian.jira.issue.MutableIssue
+import com.atlassian.jira.security.Permissions
+import com.atlassian.jira.permission.ProjectPermission
+import com.atlassian.jira.security.plugin.ProjectPermissionKey
+import com.atlassian.jira.event.type.EventDispatchOption
+import org.apache.log4j.Logger
+
+def log = Logger.getLogger("com.onresolve.jira.groovy.autoassign")
+def componentAccessor = new ComponentAccessor()
+def currentUser = componentAccessor.jiraAuthenticationContext?.getLoggedInUser()
+def permissionManager = componentAccessor.getPermissionManager()
+
+
+log.debug("Auto assign script for issue " + issue.key + " " + issue.assigneeId)
+if (issue.assigneeId == null) {
+    
+    if (permissionManager.hasPermission(new ProjectPermissionKey("ASSIGNABLE_USER"), issue, currentUser)) {
+        log.debug("Current User= "+currentUser.name+ " -  "+ currentUser.id )
+        def mutableIssue = ComponentAccessor.getIssueManager().getIssueByCurrentKey(issue.getKey())
+        mutableIssue.setAssignee(currentUser)
+        def issueManager = ComponentAccessor.getIssueManager()
+        issueManager.updateIssue(currentUser, mutableIssue,EventDispatchOption.ISSUE_ASSIGNED, true)
+        //issue.setAssigneeId(""+currentUser.id)
+    }
+}
